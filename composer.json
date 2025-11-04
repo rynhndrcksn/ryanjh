@@ -69,8 +69,10 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "fixer": "./vendor/bin/php-cs-fixer",
-        "rector": "./vendor/bin/rector"
+        "fixer": "./vendor/bin/php-cs-fixer fix",
+        "rector:check": "./vendor/bin/rector process --dry-run",
+        "rector:fix": "./vendor/bin/rector process",
+        "test": "./bin/phpunit --testdox"
     },
     "conflict": {
         "symfony/symfony": "*"
