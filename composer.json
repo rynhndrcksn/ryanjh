@@ -72,6 +72,10 @@
         "fixer": "./vendor/bin/php-cs-fixer fix",
         "rector:check": "./vendor/bin/rector process --dry-run",
         "rector:fix": "./vendor/bin/rector process",
+        "tidy": [
+            "@rector:fix",
+            "@fixer"
+        ],
         "test": "./bin/phpunit --testdox"
     },
     "conflict": {
