@@ -5,9 +5,15 @@ declare(strict_types=1);
 $finder = new PhpCsFixer\Finder()
     ->in([
         __DIR__.'/bin',
+        __DIR__.'/public',
         __DIR__.'/src',
         __DIR__.'/tests',
     ])
+    ->append([
+        __DIR__.'/.php-cs-fixer.dist.php',
+        __DIR__.'/importmap.php',
+        __DIR__.'/rector.php']
+    )
 ;
 
 return new PhpCsFixer\Config()
