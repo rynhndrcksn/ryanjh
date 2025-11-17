@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -7,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class MentoringControllerTest extends WebTestCase
 {
-    const string ENDPOINT = '/mentoring';
+    private const string ENDPOINT = '/mentoring';
 
     public function testMentoringPageResponseIsSuccessful(): void
     {

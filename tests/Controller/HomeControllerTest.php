@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class HomeControllerTest extends WebTestCase
 {
-    const string ENDPOINT = '/';
+    private const string ENDPOINT = '/';
 
     public function testHomePageResponseIsSuccessful(): void
     {
         $kernelBrowser = self::createClient();
-        $kernelBrowser->request(Request::METHOD_GET,  self::ENDPOINT);
+        $kernelBrowser->request(Request::METHOD_GET, self::ENDPOINT);
 
         self::assertResponseIsSuccessful();
     }
