@@ -13,8 +13,6 @@ final class MentoringController extends AbstractController
     #[Route('/mentoring', name: 'app_mentoring')]
     public function index(): Response
     {
-        return $this->render('mentoring/index.html.twig', [
-            'controller_name' => 'MentoringController',
-        ]);
+        return $this->render('mentoring/index.html.twig');
     }
 }
