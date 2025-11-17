@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} - Ryanjh</title>
+    <title class="title">{% block title %}{% endblock %} - Ryanjh</title>
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kelpui@1/css/kelp.css">
@@ -19,11 +19,11 @@
 <header>
     <div class="container">
         <nav class="navbar nav-primary">
-            <a href="{{ path('app_home') }}" class="logo">Ryanjh</a>
+            <a href="{{ path('app_home') }}" class="logo">Ryan Hendrickson</a>
             <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Products</a></li>
+{#                <li><a href="{{ path('app_articles') }}">Articles</a></li>#}
+                <li><a href="{{ path('app_experience') }}">Experience</a></li>
+                <li><a href="{{ path('app_mentoring') }}">Mentoring</a></li>
                 <li>
                     <a rel="noopener noreferrer" class="contrast" aria-label="Ryan Hendrickson's GitHub repository"
                        href="https://github.com/rynhndrcksn" target="_blank">
@@ -46,12 +46,10 @@
 </main>
 <footer>
     <div class="container">
-        <hr>
         <section>
             <nav class="navbar nav-secondary">
                 <ul role="list">
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="/terms">Terms of Service</a></li>
                 </ul>
             </nav>
         </section>
