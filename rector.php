@@ -11,7 +11,8 @@ use Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector;
 try {
     return Rector\Config\RectorConfig::configure()
         ->withPaths([
-            __DIR__.'/bin',
+            __DIR__.'/bin/console',
+            __DIR__.'/bin/phpunit',
             __DIR__.'/src',
             __DIR__.'/tests',
         ])
