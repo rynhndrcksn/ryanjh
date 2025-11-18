@@ -72,12 +72,12 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "fixer": "./vendor/bin/php-cs-fixer fix",
+        "fixer": "./vendor/bin/php-cs-fixer",
         "rector:check": "./vendor/bin/rector process --dry-run",
         "rector:fix": "./vendor/bin/rector process",
         "tidy": [
             "@rector:fix",
-            "@fixer"
+            "@fixer fix"
         ],
         "test": "./bin/phpunit --testdox"
     },
