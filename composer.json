@@ -25,6 +25,7 @@
         "twig/twig": "^2.12|^3.22"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^4.3",
         "friendsofphp/php-cs-fixer": "^3.89.2",
         "phpunit/phpunit": "^12.4.3",
         "rector/rector": "^2.2.8",
