@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^3.0",
         "doctrine/doctrine-migrations-bundle": "^3.7",
         "doctrine/orm": "^3.5",
+        "stof/doctrine-extensions-bundle": "^1.14",
         "symfony/asset": "^7.3.0",
         "symfony/asset-mapper": "^7.3.5",
         "symfony/console": "^7.3.6",
