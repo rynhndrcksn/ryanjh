@@ -12,3 +12,19 @@ main {
 footer {
     flex-shrink: 0;
 }
+
+.svg-icon {
+    background-color: #fff;
+    border-radius: 0.1em;
+    padding: 0.05em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-github path {
+    fill: #000000;
+}
+
+.icon-linkedin path {
+    fill: #0077B5;
+}
