@@ -11,11 +11,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ExperienceController extends AbstractController
 {
+    public function __construct(private readonly JobRepository $jobRepository)
+    {
+    }
+
     #[Route('/experience', name: 'app_experience')]
-    public function index(JobRepository $jobRepository): Response
+    public function index(): Response
     {
         return $this->render('experience/index.html.twig', [
-            'jobs' => $jobRepository->findAllOrderedByEndDate(),
+            'jobs' => $this->jobRepository->findAllOrderedByEndDate(),
         ]);
     }
 }
