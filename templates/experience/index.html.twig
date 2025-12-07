@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta name="description" content="A page listing all of Ryan Hendrickson's professional work experience.">
+{% endblock %}
+
 {% block title %}Experience{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <article>
+        <h1>Experience</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/ryan/projects/ryanjh/src/Controller/ExperienceController.php</code></li>
-        <li>Your template at <code>/Users/ryan/projects/ryanjh/templates/experience/index.html.twig</code></li>
-    </ul>
-</div>
+        <section>
+            <h2>Employment History</h2>
+            {% for job in jobs %}
+                <h3 class="margin-end-4xs">{{ job.title }}</h3>
+                <p class="margin-end-0">{{ job.employer }} - {{ job.employmentType.value }}</p>
+                {% if job.endDate is not null %}
+                    <p class="margin-end-0">{{ job.startDate|date('F Y') }} - {{ job.endDate|date('F Y') }}</p>
+                {% else %}
+                    <p class="margin-end-0">{{ job.startDate|date('F Y') }} - Present</p>
+                {% endif %}
+                <p class="margin-end-4xs">{{ job.location }}</p>
+                <p>{{ job.description }}</p>
+            {% endfor %}
+        </section>
+    </article>
 {% endblock %}

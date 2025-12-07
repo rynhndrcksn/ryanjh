@@ -21,6 +21,7 @@ final class JobFactory extends PersistentObjectFactory
      */
     public function __construct()
     {
+        parent::__construct();
     }
 
     #[\Override]
@@ -44,8 +45,8 @@ final class JobFactory extends PersistentObjectFactory
         return [
             'title'          => self::faker()->jobTitle(),
             'employer'       => self::faker()->company(),
-            'location'       => self::faker()->city(),
-            'description'    => self::faker()->text(),
+            'location'       => self::faker()->city().', Washington, United States',
+            'description'    => self::faker()->paragraphs(3, true),
             'employmentType' => self::faker()->randomElement(EmploymentType::cases()),
             'startDate'      => $startDate,
             'endDate'        => $endDate,
