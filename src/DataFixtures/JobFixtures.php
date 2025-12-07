@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
+use App\Enum\EmploymentType;
 use App\Factory\JobFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -15,7 +16,8 @@ class JobFixtures extends Fixture
         JobFactory::createMany(5);
         // Mock a "current" job.
         JobFactory::createOne([
-            'endDate' => null,
+            'employmentType' => EmploymentType::FullTime,
+            'endDate'        => null,
         ]);
 
         $manager->flush();
