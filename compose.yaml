@@ -1,4 +1,4 @@
-name: 'personal-website'
+name: 'ryanjh'
 services:
 ###> doctrine/doctrine-bundle ###
   database:
