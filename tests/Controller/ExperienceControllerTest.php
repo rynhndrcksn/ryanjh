@@ -6,9 +6,12 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Zenstruck\Foundry\Test\ResetDatabase;
 
 final class ExperienceControllerTest extends WebTestCase
 {
+    use ResetDatabase;
+
     private const string ENDPOINT = '/experience';
 
     public function testExperiencePageResponseIsSuccessful(): void

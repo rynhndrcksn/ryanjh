@@ -87,7 +87,7 @@
             "@rector:fix",
             "@fixer fix"
         ],
-        "test": "./bin/phpunit --testdox"
+        "test": "symfony php ./bin/phpunit --testdox"
     },
     "conflict": {
         "symfony/symfony": "*"
