@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^3.1",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.5.8",
+        "easycorp/easyadmin-bundle": "^4.27",
         "stof/doctrine-extensions-bundle": "^1.14",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
