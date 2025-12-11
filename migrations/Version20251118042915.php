@@ -14,7 +14,7 @@ final class Version20251118042915 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Create job table for storing employment history';
+        return 'Create the "job" table for storing employment history';
     }
 
     public function up(Schema $schema): void
