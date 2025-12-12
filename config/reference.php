@@ -1553,6 +1553,10 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     }>,
  *     role_hierarchy?: array<string, string|list<scalar|null>>,
  * }
+ * @psalm-type StimulusConfig = array{
+ *     controller_paths?: list<scalar|null>,
+ *     controllers_json?: scalar|null, // Default: "%kernel.project_dir%/assets/controllers.json"
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1566,6 +1570,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *     twig_component?: TwigComponentConfig,
  *     security?: SecurityConfig,
+ *     stimulus?: StimulusConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1583,6 +1588,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,
+ *         stimulus?: StimulusConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1597,6 +1603,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,
+ *         stimulus?: StimulusConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1613,6 +1620,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,
+ *         stimulus?: StimulusConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
