@@ -7,6 +7,7 @@ namespace App\Tests\Controller;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\Test\ResetDatabase;
 
@@ -44,7 +45,7 @@ final class SecurityControllerTest extends WebTestCase
     public function testLogin(): void
     {
         // Denied - Can't login with invalid email address.
-        $this->kernelBrowser->request('GET', '/login');
+        $this->kernelBrowser->request(Request::METHOD_GET, '/login');
         self::assertResponseIsSuccessful();
 
         $this->kernelBrowser->submitForm('Sign in', [
@@ -59,7 +60,7 @@ final class SecurityControllerTest extends WebTestCase
         self::assertSelectorTextContains('.danger', 'Invalid credentials.');
 
         // Denied - Can't login with invalid password.
-        $this->kernelBrowser->request('GET', '/login');
+        $this->kernelBrowser->request(Request::METHOD_GET, '/login');
         self::assertResponseIsSuccessful();
 
         $this->kernelBrowser->submitForm('Sign in', [

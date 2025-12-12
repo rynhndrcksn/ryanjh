@@ -7,13 +7,13 @@
         <h1>Login</h1>
 
         {% if error %}
-            <div class="danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <p class="text-color danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
         {% endif %}
 
         {% if app.user %}
-            <div class="margin-end-xl">
+            <p class="text-color warning">
                 You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
-            </div>
+            </p>
         {% endif %}
 
         <label for="username">Email</label>
