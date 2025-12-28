@@ -80,7 +80,7 @@ final class SecurityControllerTest extends WebTestCase
             '_password' => 'password',
         ]);
 
-        self::assertResponseRedirects('/');
+        self::assertResponseRedirects('/admin');
         $this->kernelBrowser->followRedirect();
 
         self::assertSelectorNotExists('.danger');
