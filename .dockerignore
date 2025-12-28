@@ -1,0 +1,51 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea/
+.DS_Store
+
+# AssetMapper Vendor
+assets/vendor/
+
+# Dependencies
+vendor/
+
+# Public assets
+public/assets/
+public/bundles/
+
+# Runtime & Cache
+var/
+
+# Environment files
+.env.*.local
+.env.test
+.env.dev
+.env.local
+
+# Tests
+tests/
+
+# Development tools
+.php-cs-fixer.cache
+.php-cs-fixer.dist.php
+phpstan.dist.neon
+phpunit.dist.xml
+.phpunit.cache/
+rector.php
+
+# Docker & Deployment
+compose.yaml
+compose.override.yaml
+Dockerfile
+.dockerignore
+bin/deploy.sh
+
+# Documentation
+README.md
+.editorconfig
+
+# CI/CD
+.github/
