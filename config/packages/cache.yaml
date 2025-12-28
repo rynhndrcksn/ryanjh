@@ -17,3 +17,21 @@ framework:
         # Namespaced pools use the above "app" backend by default
         #pools:
             #my.dedicated.cache: null
+
+when@dev:
+    framework:
+        cache:
+            app: cache.adapter.filesystem
+            system: cache.adapter.filesystem
+
+when@stg:
+    framework:
+        cache:
+            app: cache.adapter.apcu
+            system: cache.adapter.apcu
+
+when@prod:
+    framework:
+        cache:
+            app: cache.adapter.apcu
+            system: cache.adapter.apcu

@@ -1621,6 +1621,22 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         stimulus?: StimulusConfig,
  *         turbo?: TurboConfig,
  *     },
+ *     "when@stg"?: array{
+ *         imports?: ImportsConfig,
+ *         parameters?: ParametersConfig,
+ *         services?: ServicesConfig,
+ *         framework?: FrameworkConfig,
+ *         twig?: TwigConfig,
+ *         monolog?: MonologConfig,
+ *         twig_extra?: TwigExtraConfig,
+ *         doctrine?: DoctrineConfig,
+ *         doctrine_migrations?: DoctrineMigrationsConfig,
+ *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
+ *         twig_component?: TwigComponentConfig,
+ *         security?: SecurityConfig,
+ *         stimulus?: StimulusConfig,
+ *         turbo?: TurboConfig,
+ *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1720,6 +1736,7 @@ namespace Symfony\Component\Routing\Loader\Configurator;
  * @psalm-type RoutesConfig = array{
  *     "when@dev"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     "when@prod"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
+ *     "when@stg"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     "when@test"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     ...<string, RouteConfig|ImportConfig|AliasConfig>
  * }
