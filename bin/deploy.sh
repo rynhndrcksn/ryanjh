@@ -9,6 +9,7 @@ APP_RUNTIME_ENV=${APP_RUNTIME_ENV:-$APP_ENV}
 IMAGE="ghcr.io/rynhndrcksn/ryanjh:latest"
 CONTAINER_NAME="ryanjh-${APP_RUNTIME_ENV}"
 ENV_FILE="/srv/ryanjh/.env.${APP_RUNTIME_ENV}.local"
+PUBLIC_DIR="/srv/ryanjh/public"
 POD_NAME="ryanjh"
 
 echo "========================================"
@@ -41,6 +42,7 @@ podman run -d \
     --name "$CONTAINER_NAME" \
     --pod ryanjh \
     -v "$ENV_FILE:/app/.env.${APP_RUNTIME_ENV}.local:ro" \
+    -v "$PUBLIC_DIR":/app/public:rw \
     -e APP_ENV="$APP_ENV" \
     -e APP_RUNTIME_ENV="$APP_RUNTIME_ENV" \
     --network host \
