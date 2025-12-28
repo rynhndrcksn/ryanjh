@@ -1021,7 +1021,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         enable_native_lazy_objects?: bool, // Deprecated: The "enable_native_lazy_objects" option is deprecated and will be removed in DoctrineBundle 4.0, as native lazy objects are now always enabled. // Default: true
  *         controller_resolver?: bool|array{
  *             enabled?: bool, // Default: true
- *             auto_mapping?: bool, // Deprecated: The "auto_mapping" option is deprecated and will be removed in DoctrineBundle 4.0, as it only accepts `false` since 3.0. // Set to true to enable using route placeholders as lookup criteria when the primary key doesn't match the argument name // Default: false
+ *             auto_mapping?: bool, // Deprecated: The "doctrine.orm.controller_resolver.auto_mapping.auto_mapping" option is deprecated and will be removed in DoctrineBundle 4.0, as it only accepts `false` since 3.0. // Set to true to enable using route placeholders as lookup criteria when the primary key doesn't match the argument name // Default: false
  *             evict_cache?: bool, // Set to true to fetch the entity from the database instead of using the cache, if any // Default: false
  *         },
  *         entity_managers?: array<string, array{ // Default: []
@@ -1177,6 +1177,9 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         softdeleteable?: scalar|null, // Default: "Gedmo\\SoftDeleteable\\SoftDeleteableListener"
  *         uploadable?: scalar|null, // Default: "Gedmo\\Uploadable\\UploadableListener"
  *         reference_integrity?: scalar|null, // Default: "Gedmo\\ReferenceIntegrity\\ReferenceIntegrityListener"
+ *     },
+ *     softdeleteable?: array{
+ *         handle_post_flush_event?: bool, // Default: false
  *     },
  *     uploadable?: array{
  *         default_file_path?: scalar|null, // Default: null

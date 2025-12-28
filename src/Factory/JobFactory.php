@@ -14,16 +14,6 @@ use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
  */
 final class JobFactory extends PersistentObjectFactory
 {
-    /**
-     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
-     *
-     * @todo inject services if required
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     #[\Override]
     public static function class(): string
     {
