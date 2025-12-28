@@ -21,7 +21,7 @@
                     <p class="margin-end-0">{{ job.startDate|date('F Y') }} - Present</p>
                 {% endif %}
                 <p class="margin-end-4xs">{{ job.location }}</p>
-                <p>{{ job.description }}</p>
+                <p>{{ job.description|sanitize }}</p>
             {% endfor %}
         </section>
     </article>
