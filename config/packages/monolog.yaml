@@ -29,6 +29,39 @@ when@test:
                 path: "%kernel.logs_dir%/%kernel.environment%.log"
                 level: debug
 
+when@stg:
+    monolog:
+        handlers:
+            main:
+                type: fingers_crossed
+                action_level: warning
+                handler: nested
+                excluded_http_codes: [ 404, 405 ]
+                channels: [ "!event", "!deprecation" ]
+                buffer_size: 50
+            nested:
+                type: stream
+                path: php://stderr
+                level: info
+                formatter: monolog.formatter.json
+            console:
+                type: console
+                process_psr_3_messages: false
+                channels: [ "!event", "!doctrine" ]
+            deprecation:
+                type: stream
+                channels: [ deprecation ]
+                path: php://stderr
+                level: info
+                formatter: monolog.formatter.json
+            # Catch all warnings and errors separately for easier monitoring
+            errors:
+                type: stream
+                path: php://stderr
+                level: error
+                channels: [ "!event", "!deprecation" ]
+                formatter: monolog.formatter.json
+
 when@prod:
     monolog:
         handlers:
