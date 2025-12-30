@@ -2,6 +2,7 @@
 FROM php:8.5-fpm-trixie AS builder
 
 ARG APP_ENV=prod
+ARG APP_DEBUG=0
 
 # Install build dependencies (minimal, just what's needed for building)
 RUN apt-get update && apt-get install -y \
@@ -32,7 +33,8 @@ RUN composer install --no-scripts --no-progress --prefer-dist
 # Copy app and compile assets
 COPY . .
 RUN APP_ENV=${APP_ENV} php bin/console importmap:install --env=${APP_ENV} \
-    && APP_ENV=${APP_ENV} php bin/console asset-map:compile --env=${APP_ENV}
+    && APP_ENV=${APP_ENV} php bin/console asset-map:compile --env=${APP_ENV} \
+    && APP_ENV=${APP_ENV} php bin/console assets:install public --env=${APP_ENV}
 
 # Remove dev dependencies (keep compiled assets)
 RUN composer install --no-dev --no-scripts --optimize-autoloader --classmap-authoritative
