@@ -92,9 +92,6 @@ RUN { \
     echo 'decorate_workers_output = no'; \
 } > /usr/local/etc/php-fpm.d/zz-docker.conf
 
-# Override PHP-FPM to listen on all interfaces (needed for pod networking)
-RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g' /usr/local/etc/php-fpm.d/www.conf
-
 WORKDIR /app
 
 # Copy production app
