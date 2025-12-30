@@ -5,6 +5,11 @@ framework:
     # Note that the session will be started ONLY if you read or write from it.
     session: true
 
+    # Tell Asset Mapper to ignore the `./public/bundles` directory.
+    asset_mapper:
+        exclude_patterns:
+            - '*/bundles/*'
+
     #esi: true
     #fragments: true
 
