@@ -92,6 +92,9 @@ RUN { \
     echo 'decorate_workers_output = no'; \
 } > /usr/local/etc/php-fpm.d/zz-docker.conf
 
+# Copy custom PHP-FPM config
+COPY docker/php-fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
+
 WORKDIR /app
 
 # Copy production app
