@@ -17,6 +17,7 @@ public/assets/
 public/bundles/
 
 # Runtime & Cache
+infra/
 var/
 
 # Environment files
