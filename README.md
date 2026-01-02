@@ -1,9 +1,6 @@
 # Ryanjh
 
-This repository holds all the source code for my personal website, hosted at https://ryanjh.com.
-
-> [!WARNING]
-> The website is currently under active development, so the above URL will NOT take you to a functioning website.
+This repository holds all the source code for my personal website, hosted at https://www.ryanjh.com.
 
 ## Tech Stack
 
