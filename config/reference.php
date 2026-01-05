@@ -1139,60 +1139,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     enable_profiler?: bool, // Whether or not to enable the profiler collector to calculate and visualize migration status. This adds some queries overhead. // Default: false
  *     transactional?: bool, // Whether or not to wrap migrations in a single transaction. // Default: true
  * }
- * @psalm-type StofDoctrineExtensionsConfig = array{
- *     orm?: array<string, array{ // Default: []
- *         translatable?: scalar|null, // Default: false
- *         timestampable?: scalar|null, // Default: false
- *         blameable?: scalar|null, // Default: false
- *         sluggable?: scalar|null, // Default: false
- *         tree?: scalar|null, // Default: false
- *         loggable?: scalar|null, // Default: false
- *         ip_traceable?: scalar|null, // Default: false
- *         sortable?: scalar|null, // Default: false
- *         softdeleteable?: scalar|null, // Default: false
- *         uploadable?: scalar|null, // Default: false
- *         reference_integrity?: scalar|null, // Default: false
- *     }>,
- *     mongodb?: array<string, array{ // Default: []
- *         translatable?: scalar|null, // Default: false
- *         timestampable?: scalar|null, // Default: false
- *         blameable?: scalar|null, // Default: false
- *         sluggable?: scalar|null, // Default: false
- *         tree?: scalar|null, // Default: false
- *         loggable?: scalar|null, // Default: false
- *         ip_traceable?: scalar|null, // Default: false
- *         sortable?: scalar|null, // Default: false
- *         softdeleteable?: scalar|null, // Default: false
- *         uploadable?: scalar|null, // Default: false
- *         reference_integrity?: scalar|null, // Default: false
- *     }>,
- *     class?: array{
- *         translatable?: scalar|null, // Default: "Gedmo\\Translatable\\TranslatableListener"
- *         timestampable?: scalar|null, // Default: "Gedmo\\Timestampable\\TimestampableListener"
- *         blameable?: scalar|null, // Default: "Gedmo\\Blameable\\BlameableListener"
- *         sluggable?: scalar|null, // Default: "Gedmo\\Sluggable\\SluggableListener"
- *         tree?: scalar|null, // Default: "Gedmo\\Tree\\TreeListener"
- *         loggable?: scalar|null, // Default: "Gedmo\\Loggable\\LoggableListener"
- *         sortable?: scalar|null, // Default: "Gedmo\\Sortable\\SortableListener"
- *         softdeleteable?: scalar|null, // Default: "Gedmo\\SoftDeleteable\\SoftDeleteableListener"
- *         uploadable?: scalar|null, // Default: "Gedmo\\Uploadable\\UploadableListener"
- *         reference_integrity?: scalar|null, // Default: "Gedmo\\ReferenceIntegrity\\ReferenceIntegrityListener"
- *     },
- *     softdeleteable?: array{
- *         handle_post_flush_event?: bool, // Default: false
- *     },
- *     uploadable?: array{
- *         default_file_path?: scalar|null, // Default: null
- *         mime_type_guesser_class?: scalar|null, // Default: "Stof\\DoctrineExtensionsBundle\\Uploadable\\MimeTypeGuesserAdapter"
- *         default_file_info_class?: scalar|null, // Default: "Stof\\DoctrineExtensionsBundle\\Uploadable\\UploadedFileInfo"
- *         validate_writable_directory?: bool, // Default: true
- *     },
- *     default_locale?: scalar|null, // Default: "en"
- *     translation_fallback?: bool, // Default: false
- *     persist_default_translation?: bool, // Default: false
- *     skip_translation_on_load?: bool, // Default: false
- *     metadata_cache_pool?: scalar|null, // Default: null
- * }
  * @psalm-type ZenstruckFoundryConfig = array{
  *     auto_refresh_proxies?: bool|null, // Deprecated: Since 2.0 auto_refresh_proxies defaults to true and this configuration has no effect. // Whether to auto-refresh proxies by default (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#auto-refresh) // Default: null
  *     enable_auto_refresh_with_lazy_objects?: bool|null, // Enable auto-refresh using PHP 8.4 lazy objects (cannot be enabled if PHP < 8.4). // Default: null
@@ -1580,7 +1526,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     twig_extra?: TwigExtraConfig,
  *     doctrine?: DoctrineConfig,
  *     doctrine_migrations?: DoctrineMigrationsConfig,
- *     stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *     twig_component?: TwigComponentConfig,
  *     security?: SecurityConfig,
  *     stimulus?: StimulusConfig,
@@ -1598,7 +1543,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         doctrine?: DoctrineConfig,
  *         doctrine_migrations?: DoctrineMigrationsConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,
@@ -1615,7 +1559,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         doctrine?: DoctrineConfig,
  *         doctrine_migrations?: DoctrineMigrationsConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,
  *         stimulus?: StimulusConfig,
@@ -1631,7 +1574,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         doctrine?: DoctrineConfig,
  *         doctrine_migrations?: DoctrineMigrationsConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,
  *         stimulus?: StimulusConfig,
@@ -1648,7 +1590,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         doctrine?: DoctrineConfig,
  *         doctrine_migrations?: DoctrineMigrationsConfig,
- *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
  *         zenstruck_foundry?: ZenstruckFoundryConfig,
  *         twig_component?: TwigComponentConfig,
  *         security?: SecurityConfig,

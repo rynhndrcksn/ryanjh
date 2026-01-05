@@ -6,15 +6,17 @@ namespace App\Entity;
 
 use App\Enum\EmploymentType;
 use App\Repository\JobRepository;
+use App\Trait\TimestampableEntity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: JobRepository::class)]
 #[ORM\Table(name: 'job')]
 #[ORM\HasLifecycleCallbacks]
 class Job
 {
+    use TimestampableEntity;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -40,14 +42,6 @@ class Job
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $endDate = null;
-
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    #[Gedmo\Timestampable(on: 'create')]
-    private ?\DateTimeImmutable $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    #[Gedmo\Timestampable(on: 'update')]
-    private ?\DateTimeImmutable $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -136,15 +130,5 @@ class Job
         $this->endDate = $endDate;
 
         return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updatedAt;
     }
 }
