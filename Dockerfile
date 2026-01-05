@@ -4,7 +4,7 @@ FROM php:8.5-fpm-trixie AS builder
 ARG APP_ENV=prod
 ARG APP_DEBUG=0
 
-# Install build dependencies (minimal, just what's needed for building)
+# Install build dependencies
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     libzip-dev \
@@ -54,45 +54,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable apcu \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure PHP (combine all configs into fewer layers)
-RUN { \
-    echo 'memory_limit=64M'; \
-    echo 'max_execution_time=30'; \
-    echo 'max_input_time=60'; \
-    echo 'post_max_size=8M'; \
-    echo 'upload_max_filesize=8M'; \
-    echo 'expose_php=Off'; \
-    echo 'display_errors=Off'; \
-    echo 'log_errors=On'; \
-    echo 'error_log=/proc/self/fd/2'; \
-    echo ''; \
-    echo '[opcache]'; \
-    echo 'opcache.enable=1'; \
-    echo 'opcache.memory_consumption=256'; \
-    echo 'opcache.interned_strings_buffer=16'; \
-    echo 'opcache.max_accelerated_files=20000'; \
-    echo 'opcache.validate_timestamps=0'; \
-    echo 'opcache.save_comments=1'; \
-    echo 'opcache.fast_shutdown=1'; \
-    echo ''; \
-    echo '[apcu]'; \
-    echo 'apc.enabled=1'; \
-    echo 'apc.shm_size=64M'; \
-    echo 'apc.enable_cli=1'; \
-} > /usr/local/etc/php/conf.d/99-app.ini \
-    && { \
-    echo '[www]'; \
-    echo 'pm = dynamic'; \
-    echo 'pm.max_children = 20'; \
-    echo 'pm.start_servers = 4'; \
-    echo 'pm.min_spare_servers = 2'; \
-    echo 'pm.max_spare_servers = 10'; \
-    echo 'pm.max_requests = 500'; \
-    echo 'pm.status_path = /fpm-status'; \
-    echo 'ping.path = /fpm-ping'; \
-    echo 'catch_workers_output = yes'; \
-    echo 'decorate_workers_output = no'; \
-} > /usr/local/etc/php-fpm.d/zz-docker.conf
+# Copy custom php.ini file
+COPY infra/php/php.ini /usr/local/etc/php/conf.d/99-app.ini
 
 # Copy custom PHP-FPM config
 COPY infra/docker/php-fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
