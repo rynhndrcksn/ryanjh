@@ -22,8 +22,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 readonly class CreateAdminUserCommand
 {
     public function __construct(
-        private EntityManagerInterface      $entityManager,
-        private UserRepository              $userRepository,
+        private EntityManagerInterface $entityManager,
+        private UserRepository $userRepository,
         private UserPasswordHasherInterface $userPasswordHasher,
     ) {
     }
@@ -61,6 +61,7 @@ readonly class CreateAdminUserCommand
         $user = new User();
         $user->setEmail($email);
         $user->setRoles([Roles::User->value, Roles::Admin->value]);
+
         $hashedPassword = $this->userPasswordHasher->hashPassword($user, $password);
         $user->setPassword($hashedPassword);
 
