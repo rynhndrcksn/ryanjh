@@ -7,13 +7,13 @@ help:
 ## start: start the docker container(s) and Symfony web server
 .PHONY: start
 start:
-	echo 'Running "docker compose up -d" and "symfony server:start -d"'
+	@echo 'Running "docker compose up -d" and "symfony server:start -d"'
 	@docker compose up -d
 	@symfony server:start -d
 
 ## stop: stop the docker container(s) and Symfony web server
 .PHONY: stop
 stop:
-	echo 'Running "docker compose down" and "symfony server:stop"'
+	@echo 'Running "docker compose down" and "symfony server:stop"'
 	@docker compose down
 	@symfony server:stop

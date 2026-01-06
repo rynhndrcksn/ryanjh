@@ -21,7 +21,12 @@
                     <p class="margin-end-0">{{ job.startDate|date('F Y') }} - Present</p>
                 {% endif %}
                 <p class="margin-end-4xs">{{ job.location }}</p>
-                <p>{{ job.description|sanitize }}</p>
+                <div class="rte-content job-description">
+                    {{ job.description|raw }}
+                </div>
+                {% if not loop.last %}
+                    <br>
+                {% endif %}
             {% endfor %}
         </section>
     </article>

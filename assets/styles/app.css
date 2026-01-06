@@ -28,3 +28,8 @@ footer {
 .icon-linkedin path {
     fill: #0077B5;
 }
+
+/* Prevent Kelp's default spacing from looking weird on rendered RTE content from Quill. */
+.rte-content {
+    --space: 0;
+}
