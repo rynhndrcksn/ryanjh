@@ -12,6 +12,7 @@
     {% block stylesheets %}
     {% endblock %}
     {% block javascripts %}
+        <script src="{{ asset('js/highlight.min.js') }}"></script>
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>

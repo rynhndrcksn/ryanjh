@@ -53,4 +53,7 @@ return [
     'lodash.isequal'           => [
         'version' => '4.5.0',
     ],
+    'highlight.js'             => [
+        'version' => '11.11.1',
+    ],
 ];

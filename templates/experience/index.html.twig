@@ -21,8 +21,8 @@
                     <p class="margin-end-0">{{ job.startDate|date('F Y') }} - Present</p>
                 {% endif %}
                 <p class="margin-end-4xs">{{ job.location }}</p>
-                <div class="rte-content job-description">
-                    {{ job.description|raw }}
+                <div class="rte-content job-description" data-controller="highlightjs">
+                    {{ job.description|quill_to_html }}
                 </div>
                 {% if not loop.last %}
                     <br>

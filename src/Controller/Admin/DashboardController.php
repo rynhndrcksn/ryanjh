@@ -45,6 +45,8 @@ class DashboardController extends AbstractDashboardController
     public function configureAssets(): Assets
     {
         return parent::configureAssets()
+            ->addCssFile('styles/vendor/highlightjs-tokyo-night-dark.min.css')
+            ->addJsFile('js/highlight.min.js')
             ->addAssetMapperEntry('admin');
     }
 

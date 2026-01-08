@@ -18,6 +18,35 @@ export default class extends Controller {
             theme: 'snow',
             placeholder: '',
             modules: {
+                syntax: {
+                    highlight: true,
+                    // Configure available languages to match the custom build
+                    languages: [
+                        { key: 'bash', label: 'Bash' },
+                        { key: 'css', label: 'CSS' },
+                        { key: 'diff', label: 'Diff' },
+                        { key: 'dockerfile', label: 'Dockerfile' },
+                        { key: 'go', label: 'Go' },
+                        { key: 'ini', label: 'INI' },
+                        { key: 'javascript', label: 'JavaScript' },
+                        { key: 'json', label: 'JSON' },
+                        { key: 'makefile', label: 'Makefile' },
+                        { key: 'markdown', label: 'Markdown' },
+                        { key: 'nginx', label: 'Nginx' },
+                        { key: 'pgsql', label: 'PostgreSQL' },
+                        { key: 'php', label: 'PHP' },
+                        { key: 'php-template', label: 'PHP Template' },
+                        { key: 'plaintext', label: 'Plain Text' },
+                        { key: 'properties', label: 'Properties' },
+                        { key: 'rust', label: 'Rust' },
+                        { key: 'shell', label: 'Shell' },
+                        { key: 'sql', label: 'SQL' },
+                        { key: 'twig', label: 'Twig' },
+                        { key: 'typescript', label: 'TypeScript' },
+                        { key: 'wasm', label: 'WebAssembly' },
+                        { key: 'yaml', label: 'YAML' }
+                    ]
+                },
                 toolbar: {
                     container: [
                         [{ 'header': [ 2, 3, 4, 5, 6, false] }],
