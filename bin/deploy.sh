@@ -6,6 +6,13 @@ set -e
 echo "Pulling latest image..."
 docker compose pull ryanjh
 
+echo "Turning off containers..."
+docker compose down
+
+echo "Removing volumes..."
+docker volume rm srv_asset-volume
+docker volume rm srv_bundle-volume
+
 echo "Restarting containers..."
 docker compose up -d
 
