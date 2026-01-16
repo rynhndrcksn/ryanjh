@@ -156,8 +156,9 @@ export default class extends Controller {
 
             this.quill.insertEmbed(range.index, 'image', data.url);
 
+            const img = this.quill.root.querySelector(`img[src="${data.url}"]`);
+            img.setAttribute('loading', 'lazy');
             if (altText) {
-                const img = this.quill.root.querySelector(`img[src="${data.url}"]`);
                 if (img) {
                     img.setAttribute('alt', altText);
                 }
