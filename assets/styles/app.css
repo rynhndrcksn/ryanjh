@@ -34,4 +34,9 @@ footer {
 /* Prevent Kelp's default spacing from looking weird on rendered RTE content from Quill. */
 .rte-content {
     --space: 0;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
