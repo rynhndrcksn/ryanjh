@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Pulls new image for ryanjh, runs migrations, and clears the cache.
+# Pulls new image for ryanjh, runs migrations, and warms up the cache.
 
 set -e
 
