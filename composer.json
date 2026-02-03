@@ -12,8 +12,8 @@
         "doctrine/dbal": "^4.4.1",
         "doctrine/doctrine-bundle": "^3.2.2",
         "doctrine/doctrine-migrations-bundle": "^4.0",
-        "doctrine/orm": "^3.6.0",
-        "easycorp/easyadmin-bundle": "^4.27.5",
+        "doctrine/orm": "^3.6.2",
+        "easycorp/easyadmin-bundle": "^4.28.0",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
         "symfony/console": "7.4.*",
@@ -23,25 +23,25 @@
         "symfony/html-sanitizer": "7.4.*",
         "symfony/monolog-bundle": "^4.0.1",
         "symfony/runtime": "7.4.*",
-        "symfony/stimulus-bundle": "^2.31",
+        "symfony/stimulus-bundle": "^2.32",
         "symfony/twig-bundle": "7.4.*",
-        "symfony/ux-turbo": "^2.31",
+        "symfony/ux-turbo": "^2.32",
         "symfony/yaml": "7.4.*",
-        "twig/extra-bundle": "^2.12|^3.22.2",
-        "twig/twig": "^2.12|^3.22.2"
+        "twig/extra-bundle": "^2.12|^3.23.0",
+        "twig/twig": "^2.12|^3.23.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.3.1",
-        "friendsofphp/php-cs-fixer": "^3.92.3",
-        "phpunit/phpunit": "^12.5.4",
-        "rector/rector": "^2.3.0",
+        "friendsofphp/php-cs-fixer": "^3.93.1",
+        "phpunit/phpunit": "^12.5.8",
+        "rector/rector": "^2.3.5",
         "symfony/browser-kit": "7.4.*",
         "symfony/css-selector": "7.4.*",
         "symfony/debug-bundle": "7.4.*",
         "symfony/maker-bundle": "^1.65.1",
         "symfony/stopwatch": "7.4.*",
         "symfony/web-profiler-bundle": "7.4.*",
-        "zenstruck/foundry": "^2.8.4"
+        "zenstruck/foundry": "^2.8.6"
     },
     "config": {
         "allow-plugins": {
