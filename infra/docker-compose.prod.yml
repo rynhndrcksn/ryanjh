@@ -13,9 +13,8 @@ services:
             - ./nginx/sites:/etc/nginx/conf.d:ro
 
             # Application files (read-only for nginx)
+            - public-volume:/var/www/html/ryanjh:ro
             - ./ryanjh/public/uploads:/var/www/html/ryanjh/uploads:ro
-            - asset-volume:/var/www/html/ryanjh/assets:ro
-            - bundle-volume:/var/www/html/ryanjh/bundles:ro
 
             # Let's Encrypt certificate and challenge directories
             - /etc/letsencrypt:/etc/letsencrypt:ro
@@ -39,9 +38,8 @@ services:
             # Symfony cache, sessions, logs
             - ./ryanjh/var:/app/var
 
-            # Assets
-            - asset-volume:/app/public/assets
-            - bundle-volume:/app/public/bundles
+            # Public files
+            - public-volume:/app/public
 
             # User uploads
             - ./ryanjh/public/uploads:/app/public/uploads
@@ -69,6 +67,5 @@ networks:
         driver: bridge
 
 volumes:
-    asset-volume:
-    bundle-volume:
+    public-volume:
     nginx-cache:

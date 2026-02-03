@@ -10,8 +10,7 @@ echo "Turning off containers..."
 docker compose down
 
 echo "Removing volumes..."
-docker volume rm srv_asset-volume
-docker volume rm srv_bundle-volume
+docker volume rm srv_public-volume
 
 echo "Restarting containers..."
 docker compose up -d
