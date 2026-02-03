@@ -39,5 +39,5 @@ fi
 echo "Running migrations..."
 docker compose exec -T ryanjh php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing --allow-no-migration
 
-echo "Clearing cache..."
-docker compose exec -T ryanjh php -d memory_limit=-1 bin/console cache:clear
+echo "Warming up cache..."
+docker compose exec -T ryanjh php bin/console cache:warmup
