@@ -37,7 +37,7 @@ RUN APP_ENV=${APP_ENV} php bin/console importmap:install --env=${APP_ENV} \
     && APP_ENV=${APP_ENV} php bin/console assets:install public --env=${APP_ENV}
 
 # Warmup the cache so routing, templates, DI container, etc. are ready and baked into the image.
-APP_ENV=${APP_ENV} php bin/console cache:warmup --env=${APP_ENV}
+RUN APP_ENV=${APP_ENV} php bin/console cache:warmup --env=${APP_ENV}
 
 # Remove dev dependencies (keep compiled assets)
 RUN composer install --no-dev --no-scripts --optimize-autoloader --classmap-authoritative
