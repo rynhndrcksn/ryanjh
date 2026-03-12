@@ -9,11 +9,11 @@
         "ext-dom": "*",
         "ext-iconv": "*",
         "ext-libxml": "*",
-        "doctrine/dbal": "^4.4.1",
+        "doctrine/dbal": "^4.4.2",
         "doctrine/doctrine-bundle": "^3.2.2",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.6.2",
-        "easycorp/easyadmin-bundle": "^4.28.0",
+        "easycorp/easyadmin-bundle": "^4.29.3",
         "symfony/asset": "7.4.*",
         "symfony/asset-mapper": "7.4.*",
         "symfony/console": "7.4.*",
@@ -32,16 +32,16 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.3.1",
-        "friendsofphp/php-cs-fixer": "^3.93.1",
-        "phpunit/phpunit": "^12.5.8",
-        "rector/rector": "^2.3.5",
+        "friendsofphp/php-cs-fixer": "^3.94.2",
+        "phpunit/phpunit": "^12.5.14",
+        "rector/rector": "^2.3.8",
         "symfony/browser-kit": "7.4.*",
         "symfony/css-selector": "7.4.*",
         "symfony/debug-bundle": "7.4.*",
-        "symfony/maker-bundle": "^1.65.1",
+        "symfony/maker-bundle": "^1.66.0",
         "symfony/stopwatch": "7.4.*",
         "symfony/web-profiler-bundle": "7.4.*",
-        "zenstruck/foundry": "^2.8.6"
+        "zenstruck/foundry": "^2.9.2"
     },
     "config": {
         "allow-plugins": {
