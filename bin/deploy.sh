@@ -7,7 +7,8 @@ echo "Pulling latest image..."
 docker compose pull ryanjh
 
 echo "Turning off containers..."
-docker compose down
+docker compose stop caddy ryanjh
+docker compose rm -f caddy ryanjh
 
 echo "Removing volumes..."
 docker volume rm srv_public-volume

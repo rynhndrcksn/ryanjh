@@ -1,0 +1,67 @@
+{
+    email you@example.com
+    local_certs
+}
+
+# Non-www → www redirect
+ryanjh.stg {
+    redir https://www.ryanjh.stg{uri} 301
+}
+
+www.ryanjh.stg {
+    tls internal
+    encode zstd gzip
+
+    # Security headers
+    header {
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' data:; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net; font-src 'self'; img-src 'self' data:; connect-src 'self';"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        X-XSS-Protection "1; mode=block"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+        -X-Powered-By
+    }
+
+    @sensitive path_regexp ^/(config|var|vendor|bin|templates|src|tests|migrations)/
+    respond @sensitive 404
+
+    @dotfiles path_regexp /\.|composer\.(json|lock)$
+    respond @dotfiles 404
+
+    handle /uploads/* {
+        root * /var/www/html/ryanjh
+        header Cache-Control "public, immutable"
+        file_server
+    }
+
+    handle /assets/* {
+        root * /var/www/html/ryanjh
+        header Cache-Control "public, immutable"
+        file_server
+    }
+
+    handle /bundles/* {
+        root * /var/www/html/ryanjh
+        header Cache-Control "public, immutable"
+        file_server
+    }
+
+    handle /robots.txt {
+        root * /var/www/html/ryanjh
+        file_server
+    }
+
+    handle {
+        root * /app/public
+        php_fastcgi ryanjh:9000 {
+            trusted_proxies static private_ranges
+        }
+    }
+
+    log {
+        output file /var/log/caddy/ryanjh.access.log
+        format json
+    }
+}
