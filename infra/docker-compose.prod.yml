@@ -59,7 +59,7 @@ services:
         environment:
             POSTGRES_PASSWORD: ${PG_ADMIN_PASSWORD}
         volumes:
-            - ./postgres/pg_data:/var/lib/postgresql/data
+            - ./postgres/pg_data:/var/lib/postgresql
         networks:
             - app-network
 
