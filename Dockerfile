@@ -1,5 +1,5 @@
 # Build stage - for compiling assets only
-FROM php:8.5-fpm-trixie AS builder
+FROM php:8.4-fpm-trixie AS builder
 
 ARG APP_ENV=prod
 ARG APP_DEBUG=0
@@ -43,7 +43,7 @@ RUN APP_ENV=${APP_ENV} php bin/console cache:warmup --env=${APP_ENV}
 RUN composer install --no-dev --no-scripts --optimize-autoloader --classmap-authoritative
 
 # Production stage
-FROM php:8.5-fpm-trixie
+FROM php:8.4-fpm-trixie
 
 # Install runtime libs + build deps for PECL, then clean up in one layer
 RUN apt-get update && apt-get install -y \
