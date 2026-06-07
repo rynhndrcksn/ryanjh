@@ -29,6 +29,10 @@ footer {
     fill: #0077B5;
 }
 
+.icon-rss path {
+    fill: #F26522;
+}
+
 .job-description {
     --space: 0;
 }

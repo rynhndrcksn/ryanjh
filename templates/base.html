@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kelpui@1/css/kelp.css">
     {%- set main = get_url(path="main.css", cachebust=true) -%}
     <link rel="stylesheet" href="{{ main }}">
+    {% block rss %}
+    {% set feed_url = get_url(path="atom.xml", trailing_slash=false) %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ feed_url }}">
+    {% endblock %}
     <meta name="description"
         content="{% block meta_description %}{{ config.extra.default_meta_description }}{% endblock meta_description %}">
+    {% block meta %}{% endblock meta %}
 </head>
 
 <body class="dark">
@@ -21,7 +26,7 @@
             <nav class="navbar nav-primary">
                 <a href="/" class="logo">Ryanjh</a>
                 <ul>
-                    {# <li><a href="{{ path('app_articles') }}">Articles</a></li> #}
+                    <li><a href="/articles">Articles</a></li>
                     <li><a href="/experience">Experience</a></li>
                     <li><a href="/mentoring">Mentoring</a></li>
                     <li>
@@ -63,6 +68,17 @@
                     <ul>
                         <li><a href="/technology-stack">Technology Stack</a></li>
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li>
+                            <a aria-label="Ryan Hendrickson's Atom feed"
+                                href="{{ get_url(path='atom.xml', trailing_slash=false) }}" target="_blank"
+                                class="icon-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 16 16"
+                                    class="svg-icon icon-rss" aria-hidden="true">
+                                    <path
+                                        d="M2 0h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm1.5 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-1.4-4v2.1a5.9 5.9 0 0 1 5.9 5.9h2.1A8 8 0 0 0 2.1 6.5zm0-3.9V4.7A9.9 9.9 0 0 1 12 14.6h2.1A12 12 0 0 0 2.1 2.6z" />
+                                </svg>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

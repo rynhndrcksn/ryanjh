@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+{% block meta_description %}{{ page.description }}{% endblock meta_description %}
+
+{% block meta %}
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.permalink }}">
+<meta property="article:published_time" content="{{ page.date | date(format='%Y-%m-%dT%H:%M:%SZ') }}">
+{% if page.updated %}
+<meta property="article:modified_time" content="{{ page.updated | date(format='%Y-%m-%dT%H:%M:%SZ') }}">
+{% endif %}
+{% if page.taxonomies.tags %}
+{% for tag in page.taxonomies.tags %}
+<meta property="article:tag" content="{{ tag }}">
+{% endfor %}
+{% endif %}
+<link rel="canonical" href="{{ page.permalink }}">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title }}",
+    "description": "{{ page.description }}",
+    "datePublished": "{{ page.date | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    {% if page.updated %}"dateModified": "{{ page.updated | date(format='%Y-%m-%dT%H:%M:%SZ') }}",{% endif %}
+    "author": {
+        "@type": "Person",
+        "name": "{{ config.author }}",
+        "url": "{{ config.base_url | safe }}"
+    },
+    "url": "{{ page.permalink | safe }}"
+}
+</script>
+{% endblock meta %}
+
+{% block content %}
+<article>
+    <h1>{{ page.title }}</h1>
+    <p>
+        <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+            Posted on: {{ page.date | date(format="%B %d, %Y") }}
+        </time>
+        {% if page.updated %}
+        - Updated on: {{ page.updated | date(format="%B %d, %Y") }}
+        {% endif %}
+    </p>
+    <p>{{ page.word_count }} words - {{ page.reading_time }} {% if page.reading_time == 1 %}minute{% else %}minutes
+        {% endif %}</p>
+    {% if page.taxonomies.tags %}
+    <p>
+        {% for tag in page.taxonomies.tags | sort %}
+        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    {% endif %}
+    <hr>
+    {% if page.toc %}
+    <ul>
+        {% for h1 in page.toc %}
+        <li>
+            <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+            {% if h1.children %}
+            <ul>
+                {% for h2 in h1.children %}
+                <li>
+                    <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {{ page.content | safe }}
+</article>
+{% endblock content %}

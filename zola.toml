@@ -1,11 +1,12 @@
-# The URL the site will be built for
+author = "Ryan Hendrickson"
 base_url = "https://www.ryanjh.com"
-
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = false
-
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
+description = "Articles on software engineering, platform engineering, and infrastructure by Ryan Hendrickson."
+exclude_paginated_pages_in_sitemap = "all"
+generate_feeds = true
+taxonomies = [
+    { name = "tags", feed = true },
+]
+title = "Ryan Hendrickson"
 
 [markdown]
 external_links_target_blank = true
