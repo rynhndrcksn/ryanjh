@@ -1,6 +1,0 @@
-@import "vendor/quill.snow.css";
-
-.quill-editor-container {
-    max-height: 500px;
-    overflow: scroll;
-}

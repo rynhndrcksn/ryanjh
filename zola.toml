@@ -1,0 +1,25 @@
+# The URL the site will be built for
+base_url = "https://www.ryanjh.com"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = false
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+[markdown]
+external_links_target_blank = true
+lazy_async_image = true
+render_emoji = true
+
+[markdown.highlighting]
+error_on_missing_language = true
+theme = "catppuccin-mocha"
+
+[search]
+include_date = true
+include_description = true
+
+[extra]
+# Put all your custom variables here
+default_meta_description = "The homepage of Ryan Hendrickson's website."

@@ -4,16 +4,20 @@ help:
 	@echo 'Usage:'
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
-## start: start the docker container(s) and Symfony web server
-.PHONY: start
-start:
-	@echo 'Running "docker compose up -d" and "symfony server:start -d"'
-	@docker compose up -d
-	@symfony server:start -d
+## update-zola: re-installs/updates Zola via Cargo
+.PHONY: update-zola
+update-zola:
+    @cargo install --locked --git https://github.com/getzola/zola
 
-## stop: stop the docker container(s) and Symfony web server
-.PHONY: stop
-stop:
-	@echo 'Running "docker compose down" and "symfony server:stop"'
-	@docker compose down
-	@symfony server:stop
+## deploy-stg: builds the project and deploys it to the staging site
+.PHONY: deploy-stg
+deploy-stg:
+	@zola build --base-url https://ryanjh.home.arpa && \
+	rsync -a --info=progress2 --no-inc-recursive --human-readable --delete public/ lab-srv11:/var/www/ryanjh/
+
+## deploy-prd: builds the project and deploys it to the production site
+.PHONY: deploy-prd
+deploy-prd:
+	@zola build && \
+	rsync -a --info=progress2 --no-inc-recursive --human-readable --delete public/ hetz-ryanjh:/var/www/ryanjh/
+
