@@ -4,12 +4,7 @@ This repository holds all the source code for my personal website, hosted at htt
 
 ## Tech Stack
 
-At this time the project is built using [Symfony](https://symfony.com).
-
-I picked [Symfony](https://symfony.com) because of two big reasons:
-
-1. Their [Backwards Compatibility Promise](https://symfony.com/doc/current/contributing/code/bc.html).
-2. Their [LTS support](https://symfony.com/releases).
+At this time the project is built using [Zola](https://www.getzola.org).
 
 ## Contributing
 

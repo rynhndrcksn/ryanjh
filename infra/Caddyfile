@@ -1,0 +1,38 @@
+# Redirect bare domain to www
+ryanjh.com {
+    redir https://www.ryanjh.com{uri} permanent
+}
+
+www.ryanjh.com {
+    root * /var/www/ryanjh
+    file_server
+
+    # Serve pre-compressed Zola output if available
+    encode zstd gzip
+
+    # Clean URLs - try .html before 404ing
+    try_files {path} {path}.html {path}/index.html
+
+    # Cache static assets aggressively
+    @static {
+        path *.css *.js *.woff2 *.woff *.ttf *.ico *.png *.jpg *.jpeg *.webp *.svg
+    }
+    header @static Cache-Control "public, max-age=31536000, immutable"
+
+    # Don't cache HTML
+    @html {
+        path *.html
+    }
+    header @html Cache-Control "public, max-age=0, must-revalidate"
+
+    log {
+        output file /var/log/caddy/access.log
+    }
+
+    handle_errors {
+        @5xx expression `{err.status_code} >= 500`
+        rewrite @5xx /5xx.html
+        file_server
+    }
+}
+

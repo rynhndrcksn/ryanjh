@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.svg-icon {
+    background-color: #fff;
+    border-radius: 0.1em;
+    padding: 0.05em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-github path {
+    fill: #000000;
+}
+
+.icon-linkedin path {
+    fill: #0077B5;
+}
+
+.job-description {
+    --space: 0;
+}

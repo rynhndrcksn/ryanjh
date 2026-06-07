@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+{% block meta_description %}{{ page.description }}{% endblock meta_description %}
+
+{% block content %}
+<article>
+    <h1>Work Experience</h1>
+    <section>
+        <h2>Employment History</h2>
+        {% for job in page.extra.jobs %}
+        <h3 class="margin-end-4xs">{{ job.title }}</h3>
+        <p class="margin-end-0">{{ job.employer }} - {{ job.employment_type }}</p>
+        <p class="margin-end-0">
+            {{ job.start_date }}
+            -
+            {% if job.end_date %}{{ job.end_date }}{% else %}Present{% endif %}
+        </p>
+        <p class="margin-end-4xs">{{ job.location }}</p>
+        <div class="job-description">{{ job.description | markdown | safe}}</div>
+        {% if not loop.last %}
+        <br>
+        {% endif %}
+        {% endfor %}
+    </section>
+</article>
+{% endblock content %}
